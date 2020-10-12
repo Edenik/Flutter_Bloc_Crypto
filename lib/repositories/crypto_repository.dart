@@ -6,7 +6,7 @@ import 'package:http/http.dart' as http;
 
 class CryptoRepository extends BaseCryptoRepository {
   static const String _baseUrl = 'https://min-api.cryptocompare.com';
-  static const int _perPage = 20;
+  static const int perPage = 20;
 
   final http.Client _httpClient;
 
@@ -14,10 +14,10 @@ class CryptoRepository extends BaseCryptoRepository {
       : _httpClient = httpClient ?? http.Client();
 
   @override
-  Future<List<Coin>> getTopCoint({int page}) async {
+  Future<List<Coin>> getTopCoins({int page}) async {
     List<Coin> coins = [];
     String requestUrl =
-        '$_baseUrl/data/top/totalvolfull?limit=$_perPage&tsym=USD&page=$page';
+        '$_baseUrl/data/top/totalvolfull?limit=$perPage&tsym=USD&page=$page';
 
     try {
       final response = await _httpClient.get(requestUrl);
