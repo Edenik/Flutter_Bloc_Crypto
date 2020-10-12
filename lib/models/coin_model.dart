@@ -25,7 +25,7 @@ class Coin extends Equatable {
   String toString() =>
       'Coin { name: $name, fullname: $fullName, price: $price}';
 
-  factory Coin.fromJsom(Map<String, dynamic> json) {
+  factory Coin.fromJson(Map<String, dynamic> json) {
     return Coin(
       name: json['CoinInfo']['Name'] as String,
       fullName: json['CoinInfo']['FullName'] as String,
