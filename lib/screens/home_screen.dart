@@ -56,12 +56,26 @@ class _HomeScreenState extends State<HomeScreen> {
                     leading: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
-                        Text(
-                          '${++index}',
-                          style: TextStyle(
-                              color: Theme.of(context).accentColor,
-                              fontWeight: FontWeight.w600),
-                        ),
+                        Row(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            Text(
+                              '#${++index}',
+                              style: TextStyle(
+                                  color: Theme.of(context).accentColor,
+                                  fontWeight: FontWeight.w600),
+                            ),
+                            SizedBox(
+                              width: 10,
+                            ),
+                            CircleAvatar(
+                              radius: 20.0,
+                              backgroundImage: NetworkImage(
+                                  'https://www.cryptocompare.com${coin.imageUrl}'),
+                              backgroundColor: Colors.transparent,
+                            ),
+                          ],
+                        )
                       ],
                     ),
                     title: Text(
